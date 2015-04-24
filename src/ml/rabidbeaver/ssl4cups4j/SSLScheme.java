@@ -13,7 +13,7 @@ public class SSLScheme {
 	public static final String trustfile = "cupsprint-trustfile";
 	public static final String password = "i6:[(mW*xh~=Ni;S|?8lz8eZ;!SU(S";
 
-    public static Scheme getScheme(){
+    public static Scheme getScheme(Context context){
         
     	FileInputStream fis = null;
     	Scheme scheme;
@@ -22,7 +22,7 @@ public class SSLScheme {
        		KeyStore trustStore = KeyStore.getInstance(KeyStore.getDefaultType());
  
            	try {
-           		fis = null;//ctx.openFileInput(trustfile);
+           		fis = context.openFileInput(trustfile);
            		trustStore.load(fis, password.toCharArray());
            	}
             catch (Exception e){
